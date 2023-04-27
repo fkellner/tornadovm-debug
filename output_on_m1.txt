@@ -1,0 +1,61 @@
+WARNING: Using incubator modules: jdk.incubator.foreign, jdk.incubator.vector
+Starting Test
+Loading DRIVER: uk.ac.manchester.tornado.drivers.opencl.OCLTornadoDriverProvider@7a36aefa
+java.lang.NoSuchFieldError: READ_ONLY
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.graal.phases.TornadoDataflowAnalysis.processUsages(TornadoDataflowAnalysis.java:248)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.graal.phases.TornadoDataflowAnalysis.run(TornadoDataflowAnalysis.java:72)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.graal.phases.TornadoDataflowAnalysis.run(TornadoDataflowAnalysis.java:60)
+	at jdk.internal.vm.compiler/org.graalvm.compiler.phases.BasePhase.apply(BasePhase.java:446)
+	at jdk.internal.vm.compiler/org.graalvm.compiler.phases.BasePhase.apply(BasePhase.java:334)
+	at jdk.internal.vm.compiler/org.graalvm.compiler.phases.PhaseSuite.run(PhaseSuite.java:390)
+	at jdk.internal.vm.compiler/org.graalvm.compiler.phases.BasePhase.apply(BasePhase.java:446)
+	at jdk.internal.vm.compiler/org.graalvm.compiler.phases.BasePhase.apply(BasePhase.java:334)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.sketcher.TornadoSketcher.buildSketch(TornadoSketcher.java:226)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.sketcher.TornadoSketcher$TornadoSketcherCallable.call(TornadoSketcher.java:186)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.sketcher.TornadoSketcher$TornadoSketcherCallable.call(TornadoSketcher.java:176)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.util.concurrent.ExecutionException: uk.ac.manchester.tornado.api.exceptions.TornadoBailoutRuntimeException: [31mUnable to build sketch for method: calcLowpassAtRB(READ_ONLY)[0m
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.sketcher.TornadoSketcher.lookup(TornadoSketcher.java:154)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.tasks.TornadoTaskGraph.addInner(TornadoTaskGraph.java:571)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.tasks.TornadoTaskGraph.addInner(TornadoTaskGraph.java:1935)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.tasks.TornadoTaskGraph.addTask(TornadoTaskGraph.java:2022)
+	at tornado.api@0.15/uk.ac.manchester.tornado.api.TaskGraph.task(TaskGraph.java:271)
+	at App.main(App.java:25)
+Caused by: uk.ac.manchester.tornado.api.exceptions.TornadoBailoutRuntimeException: [31mUnable to build sketch for method: calcLowpassAtRB(READ_ONLY)[0m
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.sketcher.TornadoSketcher.buildSketch(TornadoSketcher.java:254)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.sketcher.TornadoSketcher$TornadoSketcherCallable.call(TornadoSketcher.java:186)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.sketcher.TornadoSketcher$TornadoSketcherCallable.call(TornadoSketcher.java:176)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+uk.ac.manchester.tornado.api.exceptions.TornadoBailoutRuntimeException: [31mUnable to build sketch for method: calcLowpassAtRB(READ_ONLY)[0m
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.sketcher.TornadoSketcher.buildSketch(TornadoSketcher.java:254)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.sketcher.TornadoSketcher$TornadoSketcherCallable.call(TornadoSketcher.java:186)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.sketcher.TornadoSketcher$TornadoSketcherCallable.call(TornadoSketcher.java:176)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 256
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.graph.TornadoGraph.getNode(TornadoGraph.java:50)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.graph.TornadoGraphBuilder.buildGraph(TornadoGraphBuilder.java:231)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.tasks.TornadoTaskGraph.compile(TornadoTaskGraph.java:626)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.tasks.TornadoTaskGraph.compileToTornadoVMBytecode(TornadoTaskGraph.java:695)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.tasks.TornadoTaskGraph.scheduleInner(TornadoTaskGraph.java:791)
+	at tornado.runtime@0.15.1-dev/uk.ac.manchester.tornado.runtime.tasks.TornadoTaskGraph.schedule(TornadoTaskGraph.java:1213)
+	at tornado.api@0.15/uk.ac.manchester.tornado.api.TaskGraph.execute(TaskGraph.java:782)
+	at tornado.api@0.15/uk.ac.manchester.tornado.api.ImmutableTaskGraph.execute(ImmutableTaskGraph.java:73)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at tornado.api@0.15/uk.ac.manchester.tornado.api.TornadoExecutionPlan$TornadoExecutor.execute(TornadoExecutionPlan.java:297)
+	at tornado.api@0.15/uk.ac.manchester.tornado.api.TornadoExecutionPlan.execute(TornadoExecutionPlan.java:126)
+	at App.main(App.java:35)
+cleanup: programs  ..........0.000012959 s
+cleanup: queues    ..........0.000454750 s
+cleanup: context   ..........0.000009125 s
+cleanup: total     ..........0.000476834 s
