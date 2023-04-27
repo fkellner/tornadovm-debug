@@ -38,7 +38,7 @@
                         </descriptorRefs>
                         <archive>
                             <manifest>
-                                <mainClass>App</mainClass>
+                                <mainClass>test.App</mainClass>
                             </manifest>
                         </archive>
 
